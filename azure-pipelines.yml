@@ -3,12 +3,16 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# commits made to main branch trigger the pipeline
 trigger:
-- main
+- main 
 
+# vm that rund the "steps"
 pool:
   vmImage: 'ubuntu-latest'
 
+# "steps" can contain "task" or "script"
+# "task" runs a task defined in the pipeline, "script" runs defined-set of commands
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
