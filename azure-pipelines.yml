@@ -21,3 +21,13 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+# deploy to azure web service
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'srv_conn'
+    appType: 'webAppLinux'
+    WebAppName: 'covidcorrector'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
